@@ -1,35 +1,48 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Badge, Card, Col } from 'react-bootstrap';
 import Row from 'react-bootstrap/Row';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Character } from '../inerfaces/characters';
 import { fetchCharacters } from '../services/fetchCharacters';
+import { setCharacter, setCharacters, setInfo } from '../store/slice';
+import { AppDispatch, RootState } from '../store/store';
 
 const CharacterList = () => {
-    const [characters, setCharacters] = useState<Character[]>([]);
-    const [page, setPage] = useState('1')
+    const characters = useSelector((state: RootState) => state.characters.characters);
+    const page = useSelector((state: RootState) => state.characters.page);
+    const info = useSelector((state: RootState)=> state.characters.info);
+    const dispatch = useDispatch<AppDispatch>();
+
+    const handleCardClick = (character: Character) => {
+        dispatch(setCharacter(character));
+    };
 
     useEffect(() => {        
         const getCharactersData = async () => {
             try {
                 const result = await fetchCharacters(page)
-                setCharacters(result.results)
+                dispatch(setCharacters(result.results));
+                dispatch(setInfo(result.info));
             } catch (error) {
                 console.error("Error loading data: ", error);
             }
         }
         getCharactersData();
-    }, [page])
+    }, [dispatch, page])
   return (
     <Row className="justify-content-md-center" lg={4}>
         
         {characters && characters.map((character: Character) => {
             const {id, name, status, species, image} = character;
             return (
-                <Col className="d-flex">
-                    <Link to={'/details'} style={{ textDecoration: 'none', color: 'inherit' }}>
-                        <Card key={id} className="flex-fill my-2">
+                <Col className="d-flex" key={id}>
+                    <Link to={'/details'}
+                     style={{ textDecoration: 'none', color: 'inherit' }}
+                     onClick={() => handleCardClick(character)}
+                     >
+                        <Card className="flex-fill my-2">
                             <Card.Img variant="top" src={image} />
                             <Card.Body>
                             <Card.Title>{name}</Card.Title>
