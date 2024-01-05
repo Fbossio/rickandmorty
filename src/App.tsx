@@ -1,11 +1,18 @@
-import './App.css'
-import NavScrollExample from './components/Navbar'
+import { Route, Routes } from 'react-router-dom';
+import './App.css';
+import NavbarComponent from './components/Navbar';
+import Characters from './pages/Characters';
 
 function App() {
   
   return (
     <>
-      <NavScrollExample/>
+      <NavbarComponent/>
+      <div>
+        <Routes>
+          <Route path='/' element={<Characters />}></Route>
+        </Routes>
+      </div>
     </>
   )
 }

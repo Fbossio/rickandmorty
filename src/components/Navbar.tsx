@@ -4,8 +4,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import logo from '../assets/Rick_and_Morty.svg';
 
 function NavbarComponent() {
-    const statusOptions = ['alive', 'dead', 'unknown'];
-    const genderOptions = ['female', 'male', 'genderless', 'unknown'];
+    const statusOptions = ['Alive', 'Dead', 'Unknown'];
+    const genderOptions = ['Female', 'Male', 'Genderless', 'Unknown'];
   return (
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary" bg="dark" data-bs-theme="dark">
       <Container>
@@ -24,14 +24,14 @@ function NavbarComponent() {
           <NavDropdown title="Status" id="collapsible-nav-dropdown">
               {statusOptions.map((status) => (
                 <NavDropdown.Item key={status} eventKey={status}>
-                  {status.charAt(0).toUpperCase() + status.slice(1)}
+                  {status}
                 </NavDropdown.Item>
               ))}
             </NavDropdown>
             <NavDropdown title="Gender" id="collapsible-nav-dropdown">
             {genderOptions.map((gender) => (
                 <NavDropdown.Item key={gender} eventKey={gender}>
-                  {gender.charAt(0).toUpperCase() + gender.slice(1)}
+                  {gender}
                 </NavDropdown.Item>
               ))}                    
             </NavDropdown>
