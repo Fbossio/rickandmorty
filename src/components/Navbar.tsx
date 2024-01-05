@@ -1,6 +1,7 @@
 import { Nav, NavDropdown } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
+import { Link } from 'react-router-dom';
 import logo from '../assets/Rick_and_Morty.svg';
 
 function NavbarComponent() {
@@ -9,16 +10,18 @@ function NavbarComponent() {
   return (
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary" bg="dark" data-bs-theme="dark">
       <Container>
-        <Navbar.Brand href="#home">
-          <img
-            alt="Logo"
-            src={logo}
-            width="200"
-            height="50"
-            className="d-inline-block align-top"
-          />            
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" /> {/* Añadir esto */}
+      <Link to={'/'}>
+          <Navbar.Brand>
+            <img
+              alt="Logo"
+              src={logo}
+              width="200"
+              height="50"
+              className="d-inline-block align-top"
+            />            
+          </Navbar.Brand>
+        </Link>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto">            
           <NavDropdown title="Status" id="collapsible-nav-dropdown">
