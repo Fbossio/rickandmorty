@@ -6,13 +6,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Character } from '../inerfaces/characters';
 import { fetchCharacters } from '../services/fetchCharacters';
-import { setCharacter, setCharacters, setInfo } from '../store/slice';
+import { setCharacter, setCharacters, setInfo } from '../store/characterSlice';
 import { AppDispatch, RootState } from '../store/store';
 
 const CharacterList = () => {
     const characters = useSelector((state: RootState) => state.characters.characters);
-    const page = useSelector((state: RootState) => state.characters.page);
-    const info = useSelector((state: RootState)=> state.characters.info);
+    const page = useSelector((state: RootState) => state.characters.page);    
     const dispatch = useDispatch<AppDispatch>();
 
     const handleCardClick = (character: Character) => {
