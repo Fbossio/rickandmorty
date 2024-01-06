@@ -42,7 +42,7 @@ const CharacterList = () => {
                      style={{ textDecoration: 'none', color: 'inherit' }}
                      onClick={() => handleCardClick(character)}
                      >
-                        <Card className="flex-fill">
+                        <Card className="flex-fill my-2">
                             <Card.Img variant="top" src={image}/>
                             <Card.Body>
                             <Card.Title className='character-name my-2'>{name}</Card.Title> 

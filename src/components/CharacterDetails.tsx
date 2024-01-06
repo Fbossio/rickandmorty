@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchEpisode } from '../services/fetcEpisodes';
 import { setEpisode } from '../store/episodeSlice';
 import { AppDispatch, RootState } from '../store/store';
-import './CharacterDetails.css';
+
 
 const CharacterDetails = () => {
     const dispatch = useDispatch<AppDispatch>();
