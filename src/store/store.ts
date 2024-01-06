@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
+import imagesReducer from './characterImagesSlice';
 import charactersReducer from './characterSlice';
 import episodesReducer from './episodeSlice';
 
 export const store = configureStore({
     reducer: {
         characters: charactersReducer,
-        episodes: episodesReducer
+        episodes: episodesReducer,        
+        images: imagesReducer,
     }
 })
 
