@@ -32,7 +32,7 @@ const CharacterList = () => {
         getCharactersData();
     }, [dispatch, page])
   return (
-    <Row className="justify-content-md-center" lg={4}>
+    <Row className="justify-content-md-center" lg={4} md={3} sm={2} xs={1}>
         
         {characters && characters.map((character: Character) => {
             const {id, name, status, species, image} = character;

@@ -33,14 +33,14 @@ const CharacterDetails = () => {
                 <Container className='d-flex align-items-center justify-content-center my-4'>
                     
                     <Row>
-                        <Col>
+                        <Col className='my-2'>
                         <div className="character-image">
                             <img src={character.image} alt="Character Image" />
                         </div>
                         </Col>
                     <Col>
                         <div className="character-details">
-                            <Table striped="columns">
+                            <Table striped="columns" className='my-2'>
                                 <tbody>
                                     <tr>
                                         <td>Name</td>
