@@ -1,0 +1,10 @@
+.character-name {
+    max-height: 1.5rem;
+    overflow: hidden;
+}
+
+.character-badges {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

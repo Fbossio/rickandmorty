@@ -8,6 +8,7 @@ import { Character } from '../inerfaces/characters';
 import { fetchCharacters } from '../services/fetchCharacters';
 import { setCharacter, setCharacters, setInfo } from '../store/characterSlice';
 import { AppDispatch, RootState } from '../store/store';
+import './CharacterList.css';
 
 const CharacterList = () => {
     const characters = useSelector((state: RootState) => state.characters.characters);
@@ -41,16 +42,16 @@ const CharacterList = () => {
                      style={{ textDecoration: 'none', color: 'inherit' }}
                      onClick={() => handleCardClick(character)}
                      >
-                        <Card className="flex-fill my-2">
-                            <Card.Img variant="top" src={image} />
+                        <Card className="flex-fill">
+                            <Card.Img variant="top" src={image}/>
                             <Card.Body>
-                            <Card.Title>{name}</Card.Title>
-                            <Card.Subtitle>
-                            <Badge bg={status === 'Alive' ? 'success' : status === 'Dead' ? 'danger' : 'secondary'}>
-                                {status.charAt(0).toUpperCase() + status.slice(1)}
-                            </Badge>
-                            </Card.Subtitle>
-                            <Badge bg='primary'>{species}</Badge>                        
+                            <Card.Title className='character-name my-2'>{name}</Card.Title> 
+                            <div className="character-badges">                           
+                                <Badge bg={status === 'Alive' ? 'success' : status === 'Dead' ? 'danger' : 'secondary'}>
+                                    {status.charAt(0).toUpperCase() + status.slice(1)}
+                                </Badge>                            
+                                <Badge bg='primary'>{species}</Badge> 
+                            </div>                       
                             </Card.Body>
                         </Card>
                     </Link>
